@@ -1,0 +1,7 @@
+<%= link_to "Create Movie", new_movie_path if current_user.has_role? :admin %>
+<br></br>
+List of all movie
+<br><br><br>
+<% @movies.each do |movie| %>
+	<%= link_to image_tag(movie.avatar), movie_path(movie),class: "img_size" %>
+<% end %>

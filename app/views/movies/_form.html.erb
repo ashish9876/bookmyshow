@@ -1,0 +1,24 @@
+<%# binding.pry %>
+<%= form_for @movie do |f|%>
+	<div class="field">
+		<%= f.label :Name %>
+		<%= f.text_field :name %>
+	</div>
+	<br>
+
+	<div class="field">
+		<%= f.label :Category %>
+		<%= f.text_field :category %>
+	</div>
+	<br>
+
+	<div class="field">
+		<%= f.label :Image %>
+		<%= f.file_field :avatar %>
+	</div>
+	<br>
+
+	<div class="actions">
+		<%= f.submit "Submit" %>
+	</div>
+<% end %>
