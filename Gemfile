@@ -56,3 +56,7 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'pry'
 gem "rolify"
+gem 'stripe-rails'
+gem 'twilio-ruby'
+gem 'envyable'
+gem 'pg'
