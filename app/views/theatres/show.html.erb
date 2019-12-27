@@ -1,0 +1,36 @@
+<%= link_to "11:45 AM", "#myModal", :class => "btn", "data-toggle" => "modal" %>
+	&nbsp &nbsp &nbsp &nbsp &nbsp
+  <%= link_to "12:30 AM", "#myModal", :class => "btn", "data-toggle" => "modal" %>
+	&nbsp &nbsp &nbsp &nbsp
+  <%= link_to "1:45 PM", "#myModal", :class => "btn", "data-toggle" => "modal" %>
+
+
+<div class="container">
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">How Many Seats?</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for Theatre.new,  :url => {:action => "no_of_seat_select"}, method: :post do |f|%>
+            <div class="field">
+              <%= f.hidden_field :id, :value => @theatre.id %>
+              <%#= f.hidden_field :movie_id, :value => @movie.id %>
+              <%= f.select :seat, Theatre.seat_selects.keys.map { |w| [w.humanize, w] } %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Submit" %>
+            </div>
+          <% end %>  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

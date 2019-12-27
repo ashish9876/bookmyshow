@@ -12,8 +12,10 @@ class MoviesController < ApplicationController
 		if current_user.has_role? :admin
 			@movie = current_user.movies.create(movie_params)
 			if @movie.save
+				message = " '#{@movie.name}' was just added."
 				flash[:success] = "Movie was successfully created."
 				redirect_to root_path
+				TwilioTextMessenger.new(message).call
 			else
 				flash.now[:error] = @movie.errors.full_messages
 				render "new"

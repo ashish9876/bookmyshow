@@ -1,5 +1,4 @@
+<%# binding.pry %>
 <% @theatres.each do |theatre| %>
-	<%= theatre.name %>
-	</br>
-	</br>
+	<%= link_to theatre.name, theatre_path(theatre) %></br>
 <% end %>
